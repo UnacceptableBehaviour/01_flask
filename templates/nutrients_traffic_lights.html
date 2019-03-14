@@ -1,0 +1,42 @@
+{% extends 'add_nav_buttons.html' %}
+
+{% block content %}
+<h3>
+    Html Version Traffic Lights - HTML5 / CSS - 01_flask
+</h3>
+
+<table>
+    <tr>
+        <td colspan="5">{{ info['recipe_title'] }} - Nutrition per {{ info['serving_size'] }}g serving</td>
+        <!-- Thresholds HERE: https://en.wikipedia.org/wiki/t_lgt__rating_system -->
+    </tr>
+    <tr>
+        <td class="t_lgt_en" id="t_energy_ttl">Energy</td>
+        <td class="t_lgt_fa" id="t_fat_ttl">Fat</td>
+        <td class="t_lgt_fs" id="t_saturates_ttl">Saturates</td>
+        <td class="t_lgt_su" id="t_sugars_ttl">Sugars</td>
+        <td class="t_lgt_sa" id="t_salt_ttl">Salt</td>
+    </tr>
+    <tr>
+        <td class="t_lgt_en" id="t_enery_qty">{{ info['n_EnkJ'] }}kJ<br>{{ info['n_En'] }}kcal</td>
+        <td class="t_lgt_fa" id="t_fat_qty">{{ info['n_Fa'] }}g</td>
+        <td class="t_lgt_fs" id="t_saturates_qty">{{ info['n_Fs'] }}g</td>
+        <td class="t_lgt_su" id="t_sugars_qty">{{ info['n_Su'] }}g</td>
+        <td class="t_lgt_sa" id="t_salt_qty">{{ info['n_Sa'] }}g</td>
+    </tr>
+    <tr>
+        <td class="t_lgt_en" id="t_energy_hml"></td>
+        <td class="t_lgt_fa" id="t_fat_hml">LOW</td>
+        <td class="t_lgt_fs" id="t_saturates_hml">LOW</td>
+        <td class="t_lgt_su" id="t_sugars_hml">HIGH</td>
+        <td class="t_lgt_sa" id="t_salt_hml">MEDIUM</td>
+    </tr>
+    <tr>
+        <td class="t_lgt_en" id="t_energy">13%</td>
+        <td class="t_lgt_fa" id="t_fat">4%</td>
+        <td class="t_lgt_fs" id="t_saturates">7%</td>
+        <td class="t_lgt_su" id="t_sugars">38%</td>
+        <td class="t_lgt_sa" id="t_salt">15%</td>
+    </tr>
+</table>
+{% endblock %}

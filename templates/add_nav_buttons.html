@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <style>
+        <!-- Load css from /static -->
+        <link rel="stylesheet" href="{{ url_for( 'static', filname='css_breakout.css') }}">
+    </style>
+    <head>
+        {% if headline %}
+        <title>{{ headline }}</title>
+        {% else %}
+        <title>Page path</title>
+        {% endif %}
+    </head>
+ 
+
+    <body>
+    
+        <h1>{{ headline }}</h1>
+
+        {% block content %}
+        {% endblock %}
+
+        <button>
+            <a href="{{url_for('index_f')}}">Recipe Roulette</a>
+        </button>
+
+        <button>
+            <a href="{{url_for('nutrient_table_f')}}">Nutrient Table</a>
+        </button>
+  
+    </body>
+</html>
+
+

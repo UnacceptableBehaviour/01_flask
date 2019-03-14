@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>recipe_template</title>
+    <!-- load the styl from html directory - locally served - WORKS -->    
+    <!-- <link rel="stylesheet" href="http://192.168.0.8:8000/css_breakout.css"> -->
+    
+    <!-- this DOESN'T WORK not sure why -->
+    <!-- <link rel="stylesheet" href="https://raw.githubusercontent.com/UnacceptableBehaviour/html_label/recipe_page/css_breakout.css"> -->
+    
+    <!-- DON'T put .css file in templates folder! -->
+    <!-- Put .css file it in the static folder! WORKS -->
+    <link rel="stylesheet" href="/static/css_breakout.css">
+</head>
+
+<body>
+
+<h3>
+    Recipe Title
+</h3>
+<h2 class="recipe_title">
+    <em>{{ recipe_name }}</em>
+</h2>
+<h3>
+    Recipe Description
+</h3>
+<h4>
+    Lightly seasoned British crab patties, seared until golden brown and topped with whole prawns and a spicy mango salsa. Served w/ a celreiac, squash and pear salad dressed with rock salt and lemon.
+    <br>
+    <!--<h4><em>Suitable for vegans.</em></h4>-->
+    <h4><em>Suitable for pescatarians.</em></h4>
+</h4>
+<h3>
+    Recipe Image
+</h3>
+
+<table>
+    <td width='424'>{{ recipe_name }}</td>
+    <td width='424'>{{ recipe_2 }}</td>
+</table>
+<!-- one image served localy using Node.js server -->
+<img src="http://192.168.0.8:8000/images/20190217_162807_mon_prawn_n_crabcake_mango_salsa.jpg" width="430" height="286">
+<!-- one image pulled from Gtihub repo - link from DLOAD button -->
+<img src="https://github.com/UnacceptableBehaviour/html_label/raw/recipe_page/images/20190217_144626_sun_steak_aub_tartar.jpg" width="430" height="286">
+<!-- project folder image directory -->
+<img src="/static/images/20190128_140750_lemon_grass_chicken_lo_cal.jpg" width="430" height="286">
+<!-- project folder image directory -->
+<img src="/static/images/20190101_171835_venison_wellington_turkey_croquette.jpg" width="430" height="286">
+
+<br>
+<h3>
+    Recipe Ingredients
+</h3>
+<h4>
+<br>------------------ for the mango salsa
+<br>53g  mango                
+<br>46g  red onion
+<br>20g  lime juice
+<br>16g  honey
+<br>4g   mild chilli              
+<br>1g   blue dragon fish sauce
+<br>                          Total (140g)
+<br>~
+<br>Chop everything up.
+<br>Mix it together.
+<br>Serve immediately for best results.
+<br>
+<br>------------------ for the savoury pear grape and squash salad
+<br>130g    butternut squash    # cm dice
+<br>60g    yellow pepper      # 5mm dice
+<br>130g    pear          # 5mm dice
+<br>60g    celeriac        # grated
+<br>60g    carrot          # grated
+<br>130g    cucumber        # 5mm dice
+<br>20g    lime juice
+<br>10g    mint          # shredded
+<br>40g    red onion        # brunoise
+<br>                          Total (640g)
+<br>~
+<br>Chop everything up.
+<br>Mix it together.
+<br>Serve immediately for best results.
+<br>
+<br>------------------ for the prawns w crab cakes mango salsa and salad
+<br>40g    prawn          # 50g    head on shell on prawn
+<br>85g    crab cakes
+<br>90g    mango salsa
+<br>160g  savoury pear grape and squash salad
+<br>                          Total (285g)    
+<br>~
+<br>Chop everything up.
+<br>Mix it together.
+<br>Serve immediately for best results.
+<br>
+</h4>
+
+<h3>
+    Html Version Traffic Lights - HTML5 / CSS 
+</h3>
+<table>
+    <tr>
+        <td colspan="5">Traffic Lights - Nutrition per 275g serving</td>
+    </tr>
+    <tr>
+        <td>Energy</td>
+        <td class="traffic_fat">Fat</td>
+        <td class="traffic_saturates">Saturates</td>
+        <td class="traffic_sugars">Sugars</td>
+        <td class="traffic_salt">Salt</td>
+    </tr>
+    <tr>
+        <td>1046kJ<br>250kcal</td>
+        <td class="traffic_fat">3.0g</td>
+        <td class="traffic_saturates">1.3g</td>
+        <td class="traffic_sugars">34g</td>
+        <td class="traffic_salt">0.9g</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="traffic_fat">LOW</td>
+        <td class="traffic_saturates">LOW</td>
+        <td class="traffic_sugars">HIGH</td>
+        <td class="traffic_salt">MEDIUM</td>
+    </tr>
+    <tr>
+        <td>13%</td>
+        <td class="traffic_fat">4%</td>
+        <td class="traffic_saturates">7%</td>
+        <td class="traffic_sugars">38%</td>
+        <td class="traffic_salt">15%</td>
+    </tr>
+</table>
+
+<br>
+<h3>
+    Allergens . . . picker.
+</h3>
+<div>
+    <input name="allergies" list="allergens" placeholder="Any allergies?">
+    <datalist id="allergens">
+        <option value="celery">
+        <option value="cereal - wheat">
+        <option value="crustacean">
+        <option value="egg">
+        <option value="fish">
+        <option value="lupin">
+        <option value="milk">
+        <option value="molluscs">
+        <option value="mustard">                    
+        <option value="peanuts">
+        <option value="sesame seeds">
+        <option value="nuts and seeds">
+        <option value="soya">
+        <option value="sulphur dioxide / sulphites">
+        <option value="lactose">
+        <option value="gluten">
+    </datalist>
+</div>
+<br>
+
+<h3>
+    QR Code
+</h3>
+<img src="http://192.168.0.8:8000/images/awesome_sauce_landing_page_QR_code.png" alt="Scan this code with your phone for recipes" width="100" height="100">
+
+<h3>
+    URL
+</h3>
+<h4>
+    http://ferdiesfoodlab.co.uk/
+</h4>
+
+</body>
+</html>

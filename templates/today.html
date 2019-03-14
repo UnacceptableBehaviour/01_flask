@@ -1,0 +1,12 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Your lunch for today</h1>
+
+<h2>{{ order.date.strftime('%Y-%m-%d') }}<!-- today's date --></h2>
+<p>{{ order.order }}<!-- print today's lunch order --></p>
+
+<!-- button to the route for cancel_order with order_id=order.id -->
+<a href="{{ url_for('cancel_order', order_id=order.id) }}">Cancel order</a>
+{% endblock %}
