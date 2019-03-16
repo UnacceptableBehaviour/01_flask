@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+{% extends 'add_nav_buttons.html' %}
 
-<html>
+{% block content %}
 <head>
     <title>recipe_template</title>
     <!-- load the styl from html directory - locally served - WORKS -->    
@@ -13,9 +13,6 @@
     <!-- Put .css file it in the static folder! WORKS -->
     <link rel="stylesheet" href="{{ url_for( 'static', filename='css_breakout.css') }}">
 </head>
-
-<body>
-
 <h3>
     Recipe Title
 </h3>
@@ -139,6 +136,4 @@
 <h4>
     http://ferdiesfoodlab.co.uk/
 </h4>
-
-</body>
-</html>
+{% endblock %}
