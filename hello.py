@@ -32,16 +32,27 @@ def nutrient_table_f():
     return render_template("nutrients_traffic_lights_w_buttons_dbl.html", headline=headline_py, info=info)
 
 
-@app.route('/recipe_drop_down')
+@app.route('/recipe_drop_down', methods=["GET", "POST"])
 def recipe_drop_down():
-    info = load_csv_data()
-    headline_py = "Pick a Recipe"
-    return render_template("recipe_dropdown.html", headline=headline_py, image_dict=info)
+    if request.method =='GET':
+        info = load_csv_data()
+        image_file = ''
+        headline_py = "Pick a Recipe"
+        return render_template("recipe_dropdown.html", headline=headline_py, recipe_image=image_file, image_dict=info)
+    else:
+        info = load_csv_data()
+        headline_py = "Pick a Recipe"        
+        image_file = request.form.get("recipe_image_list_drop_down")
+        return render_template("recipe_dropdown.html", headline=headline_py, recipe_image=image_file, image_dict=info)
+        
 
-@app.route('/drop_down_action', methods=["POST"])
+@app.route('/drop_down_action', methods=["GET", "POST"])
 def drop_down_action():
-    image_file = request.form.get("recipe_image_list_drop_down")
-    return render_template("show_image.html", recipe_image=image_file)
+    if request.method =='GET':
+        return "THIS IS A GET REQUEST"
+    else:            
+        image_file = request.form.get("recipe_image_list_drop_down")
+        return render_template("show_image.html", recipe_image=image_file)
     
 
 @app.route('/recipe_wb')
