@@ -1,0 +1,11 @@
+{% extends 'add_nav_buttons.html' %}
+
+{% block content %}
+    <h2>You selected: {{recipe_image}}</h2>
+    <!-- http://jinja.pocoo.org/docs/2.10/templates/#if -->
+    {% if recipe_image != '' %}
+      <img src="/static/{{recipe_image}}">
+    {% else %}
+      <img src="/static/images/awesome_sauce_landing_page_QR_code.png">
+    {% endif %}
+{% endblock %}

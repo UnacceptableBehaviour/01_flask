@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # importing files
@@ -37,6 +37,12 @@ def recipe_drop_down():
     info = load_csv_data()
     headline_py = "Pick a Recipe"
     return render_template("recipe_dropdown.html", headline=headline_py, image_dict=info)
+
+@app.route('/drop_down_action', methods=["POST"])
+def drop_down_action():
+    image_file = request.form.get("recipe_image_list_drop_down")
+    return render_template("show_image.html", recipe_image=image_file)
+    
 
 @app.route('/recipe_wb')
 def recipe_wb():

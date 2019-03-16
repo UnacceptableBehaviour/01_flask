@@ -2,6 +2,18 @@
 
 {% block content %}
     <h2>Recipe Drop Down!</h2>
+    <p>creating a drop down with the list of images</p>
+    <form action="{{ url_for('drop_down_action') }}" method="post">
+        <input name="recipe_image_list_drop_down" list="recipe_image_list" placeholder="Which you fancy?">
+        
+        <datalist id="recipe_image_list">
+            {% for key, image in image_dict.items() %}
+            <option value="{{image}}">
+            {% endfor %}
+        </datalist>
+        <button>PICK!</button>
+    </form>
+    
     <p>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </p>
     <p>for loop through keys</p>
     {% for key in image_dict %}
@@ -19,15 +31,16 @@
     {% endfor %}
 
     <p>creating a drop down with the list of images</p>
-    <div>
+    <form action="{{ url_for('drop_down_action') }}" method="post">
         <input name="recipe_image_list_drop_down" list="recipe_image_list" placeholder="Which you fancy?">
         
         <datalist id="recipe_image_list">
             {% for key, image in image_dict.items() %}
             <option value="{{image}}">
             {% endfor %}
-        </datalist>    
-    </div>
+        </datalist>
+        <button>PICK!</button>
+    </form>
 
     <div>    
     <p>showing all the images</p>
