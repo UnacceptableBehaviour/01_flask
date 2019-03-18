@@ -1,0 +1,24 @@
+{% extends 'add_nav_buttons.html' %}
+
+{% block content %}
+    <h2>Ingerdients list</h2>
+
+    <form action="{{ url_for('ingredient_list') }}" method="post">        
+        <input name="form_ingredients_list" text="ingredients_list" placeholder="Add an ingredient . . ">
+        
+        <button>ADD item</button>
+    </form>
+    
+    <ul>
+    {% for i in ingredient_list %}
+      <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+
+    <!-- L2 - 1h34 - create list uses session / cookies too! -->
+    <h3>Recipe: {{info['recipe_title']}}</h3><br>
+    <img src="{{info['image_filename']}}"><br>
+    <h4>METHODOS</h4>
+    <p>Here are some instructions on how to make this recipe!</p>
+  
+{% endblock %}

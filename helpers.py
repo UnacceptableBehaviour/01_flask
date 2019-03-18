@@ -99,3 +99,11 @@ def get_nutrients_per_serving():
         print(f"key:{key} - b4:{b4} - x:{multiplier} - conv:{info[key]}- conv:{info[key].__class__.__name__}")
 
     return info
+
+
+def get_ingredients_from_recipe(recipe_name):
+    print(f"{recipe_name}")
+    
+    ingredients = "50g	fennel\n46g	butter\n70g	leek".split("\n")
+    
+    return ingredients    

@@ -6,8 +6,10 @@ app = Flask(__name__)
 # https://stackoverflow.com/questions/4142151/how-to-import-the-class-within-the-same-directory-or-sub-directory
 # https://pep8.org/#imports
 # https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
-from .helpers import  load_csv_data, get_nutridata, get_nutrients_per_serving
+from .helpers import  load_csv_data, get_nutridata, get_nutrients_per_serving, get_ingredients_from_recipe
 #import helpers
+
+ingredient_text_list = get_ingredients_from_recipe('mushroom rissotto')
 
 # these execute templates stored in the directory templates (in project folder)
 # this passes a veariable headline into the index.html template
@@ -53,6 +55,24 @@ def drop_down_action():
     else:            
         image_file = request.form.get("recipe_image_list_drop_down")
         return render_template("show_image.html", recipe_image=image_file)
+
+@app.route('/ingredients', methods=['GET','POST'])
+def ingredient_list():
+    header = 'rcp_id,image_filename,recipe_title,txt_ingredient_file,n_En,n_Fa,n_Fs,n_Fm,n_Fp,n_Fo3,n_Ca,n_Su,n_Fb,n_St,n_Pr,n_Sa,n_Al,serving_size'
+    info = {}
+    recipe_name = 'mushroom rissotto'
+    info['recipe_title'] = recipe_name
+    info['ingredient_list'] = get_ingredients_from_recipe(recipe_name)
+    #info['image_filename'] = get_image_for_recipe(recipe_name)
+    info['image_filename'] = './static/recipe/20190301_145910_mushroom rissotto.jpg'
+    
+    if request.method =='GET':      # arrive at page
+        return render_template("ingredients_list.html", info=info, ingredient_list=ingredient_text_list)
+    else:                           # page updating with user input request.method = 'POST' 
+        new_ingredient = request.form.get("form_ingredients_list")
+        ingredient_text_list.append(new_ingredient)
+        return render_template("ingredients_list.html", info=info, ingredient_list=ingredient_text_list)
+
     
 
 @app.route('/recipe_wb')
