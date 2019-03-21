@@ -12,14 +12,14 @@
             console.log('DOMContentLoaded');
             
             //document.querySelector('#b_pick').click = function() {
-            document.querySelector('.special_picker_button_class').click = function() {
+            document.querySelector('.special_picker_button_class').onclick = function() {
                 //const not_var = 'sentence';
                 //alert(`finish the ${not_var}`);
                 console.log('b_pick.click');
             };
             console.log('click attached');
 
-            document.querySelector('.special_picker_button_class').mousedown = function() {
+            document.querySelector('.special_picker_button_class').onmousedown = function() {
                 const not_var = 'sentence';
                 alert(`finish the ${not_var}`);
                 console.log('b_pick.mousedown');
@@ -27,10 +27,10 @@
             console.log('mousedown attached');
             
             console.log(document.querySelector('.special_picker_button_class'));
-            console.log(document.querySelector('.special_picker_button_class').click);
-            console.log(document.querySelector('.special_picker_button_class').mousedown);
+            console.log(document.querySelector('.special_picker_button_class').onclick);
+            console.log(document.querySelector('.special_picker_button_class').onmousedown);
             
-            console.log(getEventListeners(document.querySelector('.special_picker_button_class')));
+            //console.log(getEventListeners(document.querySelector('.special_picker_button_class')));
             
         });
     </script>
