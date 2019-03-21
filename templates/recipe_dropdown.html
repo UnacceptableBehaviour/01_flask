@@ -1,6 +1,37 @@
 {% extends 'add_nav_buttons.html' %}
 
 {% block content %}
+    <script>
+        let insert = 'begining';        
+        alert(`start at the ${insert} - page loaded`);
+        console.log('page loaded');
+        // enter the following in the console to view events LIVE
+        // monitorEvents($('.special_picker_button_class'))
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded');
+            
+            //document.querySelector('#b_pick').click = function() {
+            document.querySelector('.special_picker_button_class').click = function() {
+                //const not_var = 'sentence';
+                //alert(`finish the ${not_var}`);
+                console.log('b_pick.click');
+            };
+            console.log('click attached');
+
+            document.querySelector('.special_picker_button_class').mousedown = function() {
+                const not_var = 'sentence';
+                alert(`finish the ${not_var}`);
+                console.log('b_pick.mousedown');
+            };
+            console.log('mousedown attached');
+            
+            console.log(document.querySelector('.special_picker_button_class'))
+            console.log(document.querySelector('.special_picker_button_class').click)
+            console.log(document.querySelector('.special_picker_button_class').mousedown)
+        });
+    </script>
+    
     <h2>Recipe Drop Down!</h2>
     <p>creating a drop down with the list of images - STAY ON THIS PAGE</p>
     <form action="{{ url_for('recipe_drop_down') }}" method="post">        
@@ -11,8 +42,9 @@
             <option value="{{image}}">
             {% endfor %}
         </datalist>
-        <button>PICK!</button>
+        <button class='original_button' id='o_pick'>PICK!</button>        
     </form>
+    <button class='special_picker_button_class' id='b_pick'>GO ON, PICK!</button>
 
     <h3>You selected: {{recipe_image}}</h3>
     {% if recipe_image != '' %}
