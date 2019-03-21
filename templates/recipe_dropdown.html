@@ -26,9 +26,12 @@
             };
             console.log('mousedown attached');
             
-            console.log(document.querySelector('.special_picker_button_class'))
-            console.log(document.querySelector('.special_picker_button_class').click)
-            console.log(document.querySelector('.special_picker_button_class').mousedown)
+            console.log(document.querySelector('.special_picker_button_class'));
+            console.log(document.querySelector('.special_picker_button_class').click);
+            console.log(document.querySelector('.special_picker_button_class').mousedown);
+            
+            console.log(getEventListeners(document.querySelector('.special_picker_button_class')));
+            
         });
     </script>
     
