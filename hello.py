@@ -80,3 +80,7 @@ def recipe_wb():
     info = get_nutrients_per_serving()
     headline_py = "Lick the Buttons"
     return render_template("recipe_template_wb.html", headline=headline_py, info=info)
+
+
+
+# app.run(host='0.0.0.0', port= 8090)

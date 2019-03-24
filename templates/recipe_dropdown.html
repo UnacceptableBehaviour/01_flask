@@ -3,7 +3,7 @@
 {% block content %}
     <script>
         let insert = 'begining';        
-        alert(`start at the ${insert} - page loaded`);
+        //alert(`start at the ${insert} - page loaded`);
         console.log('page loaded');
         // enter the following in the console to view events LIVE
         // monitorEvents($('.special_picker_button_class'))
@@ -21,23 +21,47 @@
 
             document.querySelector('.special_picker_button_class').onmousedown = function() {
                 const not_var = 'sentence';
-                alert(`finish the ${not_var}`);
-                console.log('b_pick.mousedown');
+                //alert(`finish the ${not_var}`);
+                console.log(`b_pick.mousedown finish the ${not_var}`);
             };
             console.log('mousedown attached');
+            
+            document.querySelector('.form_recpie_dd').oninput = function() {
+                console.log(`FORM - ONSUBMIT: this.value < ${this.value} >`);
+                console.log(`FORM - ONSUBMIT: this.name < ${this.name} >`);
+                console.log(`FORM - ONSUBMIT: this.innerHTML < ${this.innerHTML} >`);                
+                console.log(`FORM - ONSUBMIT: this.input < ${this.input} >`);
+                console.log(`FORM - ONSUBMIT: this.innerText < ${this.innerText} >`);
+                console.log(`FORM - ONSUBMIT: this.name.innerText < ${this.name.innerText} >`);
+                //console.log(`FORM - ONSUBMIT: this.input.value < ${this.input.value} >`);
+                console.log(`FORM - ONSUBMIT: this < ${this} >`);
+                // console.log(`FORM - ONSUBMIT: this. < ${this.} >`);
+                console.log( document.querySelector('input') );
+                console.log( document.querySelector('input').value );   // << CA-CHING
+                console.log( document.querySelector('input[name="recipe_image_list_drop_down"]') );
+                console.log( document.querySelector('input[name="recipe_image_list_drop_down"]').value );
+            }
+ 
+             document.querySelector('.form_recpie_dd').onsubmit = function() {
+                console.log(`FORM - ONSUBMIT: this.value < ${this.value} >`);
+                console.log(`FORM - ONSUBMIT: this.name < ${this.name} >`);
+                console.log(`FORM - ONSUBMIT: this.innerHTML < ${this.innerHTML} >`);                
+                console.log(`FORM - ONSUBMIT: this.input < ${this.input} >`);
+                console.log(`FORM - ONSUBMIT: this.innerText < ${this.innerText} >`);
+                console.log(`FORM - ONSUBMIT: this.name.innerText < ${this.name.innerText} >`);
+                // console.log(`FORM - ONSUBMIT: this. < ${this.} >`);
+            }
             
             console.log(document.querySelector('.special_picker_button_class'));
             console.log(document.querySelector('.special_picker_button_class').onclick);
             console.log(document.querySelector('.special_picker_button_class').onmousedown);
-            
-            //console.log(getEventListeners(document.querySelector('.special_picker_button_class')));
             
         });
     </script>
     
     <h2>Recipe Drop Down!</h2>
     <p>creating a drop down with the list of images - STAY ON THIS PAGE</p>
-    <form action="{{ url_for('recipe_drop_down') }}" method="post">        
+    <form class='form_recpie_dd' action="{{ url_for('recipe_drop_down') }}" method="post">        
         <input name="recipe_image_list_drop_down" list="recipe_image_list" placeholder="Which you fancy?">
         
         <datalist id="recipe_image_list">
