@@ -7,6 +7,7 @@
         console.log('page loaded');
         // enter the following in the console to view events LIVE
         // monitorEvents($('.special_picker_button_class'))
+        // monitorEvents($('.form_recpie_dd'))
         
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOMContentLoaded');
@@ -40,9 +41,23 @@
                 console.log( document.querySelector('input').value );   // << CA-CHING
                 console.log( document.querySelector('input[name="recipe_image_list_drop_down"]') );
                 console.log( document.querySelector('input[name="recipe_image_list_drop_down"]').value );
+                
+                //<img id='recipe_image' src="/static/images/awesome_sauce_landing_page_QR_code.png">
+                // change image to image in drop down
+                new_image = document.querySelector('input[name="recipe_image_list_drop_down"]').value;                
+                console.log( document.querySelector('#recipe_image') );
+                if (new_image.length != 0) {
+                    document.querySelector('#recipe_image').src=`/static/${new_image}`;    
+                }
+                
             }
  
-             document.querySelector('.form_recpie_dd').onsubmit = function() {
+            document.querySelector('.form_recpie_dd').onpointerenter = function() {
+                console.log("ponterenter: CLEARING FORM");
+                document.querySelector('input[name="recipe_image_list_drop_down"]').value = '';
+            }
+ 
+            document.querySelector('.form_recpie_dd').onsubmit = function() {
                 console.log(`FORM - ONSUBMIT: this.value < ${this.value} >`);
                 console.log(`FORM - ONSUBMIT: this.name < ${this.name} >`);
                 console.log(`FORM - ONSUBMIT: this.innerHTML < ${this.innerHTML} >`);                
@@ -75,9 +90,9 @@
 
     <h3>You selected: {{recipe_image}}</h3>
     {% if recipe_image != '' %}
-      <img src="/static/{{recipe_image}}">
+      <img id='recipe_image' src="/static/{{recipe_image}}">
     {% else %}
-      <img src="/static/images/awesome_sauce_landing_page_QR_code.png">
+      <img id='recipe_image' src="/static/images/awesome_sauce_landing_page_QR_code.png">
     {% endif %}
 
 
