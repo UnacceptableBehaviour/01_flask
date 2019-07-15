@@ -8,7 +8,7 @@ import itertools
 from pprint import pprint # giza a look
 
 
-
+# load csv file form local directory - in repo
 def load_csv_data():
     file_name = './static/sql_recipe_data.csv'
 

@@ -47,7 +47,8 @@
                 new_image = document.querySelector('input[name="recipe_image_list_drop_down"]').value;                
                 console.log( document.querySelector('#recipe_image') );
                 if (new_image.length != 0) {
-                    document.querySelector('#recipe_image').src=`/static/${new_image}`;    
+                    // document.querySelector('#recipe_image').src=`/static/${new_image}`;
+                    document.querySelector('#recipe_image').src=`http://192.168.0.8:8000/static/${new_image}`;
                 }
                 
             }

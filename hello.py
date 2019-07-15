@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
@@ -6,8 +8,11 @@ app = Flask(__name__)
 # https://stackoverflow.com/questions/4142151/how-to-import-the-class-within-the-same-directory-or-sub-directory
 # https://pep8.org/#imports
 # https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
-from .helpers import  load_csv_data, get_nutridata, get_nutrients_per_serving, get_ingredients_from_recipe
+from helpers import  load_csv_data, get_nutridata, get_nutrients_per_serving, get_ingredients_from_recipe
 #import helpers
+
+# when running $flask run  dot before helpers
+# from .helpers import  load_csv_data, get_nutridata, get_nutrients_per_serving, get_ingredients_from_recipe
 
 ingredient_text_list = get_ingredients_from_recipe('mushroom rissotto')
 
@@ -41,7 +46,7 @@ def recipe_drop_down():
         image_file = ''
         headline_py = "Pick a Recipe"
         return render_template("recipe_dropdown.html", headline=headline_py, recipe_image=image_file, image_dict=info)
-    else:
+    else:           # POST
         info = load_csv_data()
         headline_py = "Pick a Recipe"        
         image_file = request.form.get("recipe_image_list_drop_down")
@@ -83,4 +88,8 @@ def recipe_wb():
 
 
 
-# app.run(host='0.0.0.0', port= 8090)
+if __name__ == '__main__':
+    # https://pythonprogramminglanguage.com/flask-hello-world/
+    # reserved port numbers
+    # https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
+    app.run(host='0.0.0.0', port=50091)
